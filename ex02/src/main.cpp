@@ -1,19 +1,16 @@
-#include "FragTrap.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include <iostream>
 
 int main() {
-    FragTrap f("Fraga");
+   // Animal a;           // ❌ ERRO: classe abstrata
+    Animal* d = new Dog();  // ✅ funciona
+    Animal* c = new Cat();  // ✅ funciona
 
-    std::cout << "=== Testando ataque ===" << std::endl;
-    f.attack("Joao");
+    d->makeSound();  // "Woof"
+    c->makeSound();  // "Meow"
 
-    std::cout << "=== Testando high five ===" << std::endl;
-    f.highFivesGuys();
-
-    std::cout << "=== Testando cópia ===" << std::endl;
-    FragTrap copia(f);
-
-    std::cout << "=== Testando atribuição ===" << std::endl;
-    FragTrap outro;
-    outro = f;
-     return 0;
+    delete d;
+    delete c;
+    return 0;
 }
